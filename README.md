@@ -17,11 +17,11 @@ If you are using windows please setup WSL and a local Ubuntu Virtual machine fol
 
 ### Setup infra
 
-You can create your GitHub repository based on this template by clicking on the `Use this template button in the **[data_engineering_project_template](https://github.com/josephmachado/data_engineering_project_template)** repository. Clone your repository and replace content in the following files
+You can create your GitHub repository based on this template by clicking on the `Use this template button in the **[data-test-project-1](https://github.com/paul-nguyen-1/data-test-project-1)** repository. Clone your repository and replace content in the following files
 
-1. **[CODEOWNERS](https://github.com/josephmachado/data_engineering_project_template/blob/main/.github/CODEOWNERS)**: In this file change the user id from `@josephmachado` to your Github user id.
-2. **[cd.yml](https://github.com/josephmachado/data_engineering_project_template/blob/main/.github/workflows/cd.yml)**: In this file change the `data_engineering_project_template` part of the `TARGET` parameter to your repository name.
-3. **[variable.tf](https://github.com/josephmachado/data_engineering_project_template/blob/main/terraform/variable.tf)**: In this file change the default values for `alert_email_id` and `repo_url` variables with your email and [github repository url](https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/GitHub-URL-find-use-example) respectively.
+1. **[CODEOWNERS](https://github.com/paul-nguyen-1/data-test-project-1/blob/main/.github/CODEOWNERS)**: In this file change the user id from `@paul-nguyen-1` to your Github user id.
+2. **[cd.yml](https://github.com/paul-nguyen-1/data-test-project-1/blob/main/.github/workflows/cd.yml)**: In this file change the `data-test-project-1` part of the `TARGET` parameter to your repository name.
+3. **[variable.tf](https://github.com/paul-nguyen-1/data-test-project-1/blob/main/terraform/variable.tf)**: In this file change the default values for `alert_email_id` and `repo_url` variables with your email and [github repository url](https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/GitHub-URL-find-use-example) respectively.
 
 Run the following commands in your project directory.
 
@@ -42,7 +42,7 @@ make cloud-airflow # this command will forward Airflow port from EC2 to your mac
 # the user name and password are both airflow
 
 make cloud-metabase # this command will forward Metabase port from EC2 to your machine and opens it in the browser
-# use https://github.com/josephmachado/data_engineering_project_template/blob/main/env file to connect to the warehouse from metabase
+# use https://github.com/paul-nguyen-1/data-test-project-1/blob/main/env file to connect to the warehouse from metabase
 ```
 
 **Data infrastructure**
@@ -60,7 +60,7 @@ make db-migration # enter a description, e.g. create some schema
 make warehouse-migration # to run the new migration on your warehouse
 ```
 
-For the [continuous delivery](https://github.com/josephmachado/data_engineering_project_template/blob/main/.github/workflows/cd.yml) to work, set up the infrastructure with terraform, & defined the following repository secrets. You can set up the repository secrets by going to `Settings > Secrets > Actions > New repository secret`.
+For the [continuous delivery](https://github.com/paul-nguyen-1/data-test-project-1/blob/main/.github/workflows/cd.yml) to work, set up the infrastructure with terraform, & defined the following repository secrets. You can set up the repository secrets by going to `Settings > Secrets > Actions > New repository secret`.
 
 1. **`SERVER_SSH_KEY`**: We can get this by running `terraform -chdir=./terraform output -raw private_key` in the project directory and paste the entire content in a new Action secret called SERVER_SSH_KEY.
 2. **`REMOTE_HOST`**: Get this by running `terraform -chdir=./terraform output -raw ec2_public_dns` in the project directory.
